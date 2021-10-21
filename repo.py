@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# 这个模块储存了单个爬到的库的 class，名为 Repo，以及输出之类的与这个 class 相关的函数
 
 from typing import Dict, List
 
