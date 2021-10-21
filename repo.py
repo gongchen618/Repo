@@ -8,9 +8,9 @@ class Repo:  # 储存一个 repo 的信息
     url: str = None
     license: str = None
     about: str = None
-    language: List = {}
-    commit: List = {}
-    issue: List = {}
+    language: Dict = {}
+    commit: List = []
+    issue: List = []
 
 
 def Repo_json(it: Repo) -> Dict:  # 返回任务一要求信息的 json 格式
