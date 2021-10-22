@@ -16,7 +16,7 @@ def get_HTML(url: str):
 
     # 这里应该加入一个循环，page_url 每次改变
     response = requests.get(url, headers=headers)
-    response.encoding = response.apparent_encoding
+    response.encoding = "utf-8"
     selector = etree.HTML(response.text)
 
     return selector
