@@ -1,11 +1,8 @@
 # login in github
 
-import conf
+import utils.conf as conf
 import requests
 from lxml import etree
-
-conf.LoadConfig()
-conf.ProxyConnect()
 
 url_login = 'https://github.com/login'
 url_session = 'https://github.com/session'

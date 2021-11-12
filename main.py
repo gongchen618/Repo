@@ -1,9 +1,7 @@
-import sys
-from utils import login
-from requests.sessions import session
-from utils import conf
+import utils.login as login
+import utils.conf as conf
 import addstar
-from lxml import etree
+import addlabel
 
 def init():
     conf.LoadConfig()
@@ -11,5 +9,6 @@ def init():
     return login.InitSession()
 
 session = init()
-#addstar.RandomAddstar(session, "https://github.com/orgs/apache/repositories")
+addlabel.CheckIssueLabel(session, "https://github.com/testofgc/test")
+addstar.RandomAddStar(session, "https://github.com/orgs/apache/repositories")
 

@@ -1,6 +1,6 @@
 # add star for repos
 
-import conf
+from utils import conf
 from lxml import etree
 import random
 
@@ -11,12 +11,13 @@ def addStar(session, url_repo):
     """
     response = session.get(url_repo, headers=conf.headers)
     html = etree.HTML(response.text)
-    token = html.xpath('//form[@class="unstarred js-social-form"]/input[@type="hidden"]/@value')
+    token = html.xpath('//form[@class="unstarred js-social-form"]/input[@type="hidden"]/@value')[0]
+    # take notice of the "[0]", it cost me more than an hour to solve
     if len(token) == 0:
         raise Exception("\"" + url_repo +  "\" is not a repo's url.")
     
     data = {
-        'authenticity_token' : token[0], # take notice of the "[0]", it cost me more than an hour to solve
+        'authenticity_token' : token, 
         'context' : 'repository'
     }
     response = session.post(url_repo + "/star", headers = conf.headers, data = data)
@@ -25,7 +26,7 @@ def addStar(session, url_repo):
     print ("Success addStar for " + url_repo)
 
 
-def RandomAddstar (session, url_page):
+def RandomAddStar (session, url_page):
     """
     random addstar for a page's repos
     the url given should be a repo's page
