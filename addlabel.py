@@ -5,7 +5,6 @@ from utils import conf
 from lxml import etree
 
 url_issues = "https://github.com/testofgc/test/issues"
-
 # https://github.com/testofgc/test/issues/1/show_partial?partial=issues%2Fsidebar%2Flabels_menu_content
 
 def hasLabel(html):
